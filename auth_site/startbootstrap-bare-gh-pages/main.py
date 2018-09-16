@@ -17,6 +17,14 @@ app = Flask(__name__)
 def home():
 	return render_template('index.html')
 
+@app.route('/mokai')
+def mokai():
+	return render_template('mokai.html')
+
+@app.route('/login')
+def login():
+	return render_template('login.html')
+
 @app.route('/check_state', methods=['POST'])
 def check_state():
 	user = request.form['user_id']

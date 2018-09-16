@@ -54,7 +54,7 @@ $.ajax(settings).done(function (response) {
         if (status == 200) {
             console.log('hi')
             gqTl.play();
-            setTimeout(function(){ window.location.replace("http://google.com"); }, 3000);
+            setTimeout(function(){ window.location.replace("/mokai"); }, 3000);
           
 
         } // auth successgq
