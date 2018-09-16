@@ -1,7 +1,4 @@
 
-    console.log('poop')
-
-
 
 
 
@@ -54,7 +51,7 @@ $.ajax(settings).done(function (response) {
         if (status == 200) {
             console.log('hi')
             gqTl.play();
-            setTimeout(function(){ window.location.replace("/mokai"); }, 3000);
+            setTimeout(function(){ window.location.replace("https://imgur.com/a/gL6SerD"); }, 3000);
           
 
         } // auth successgq
