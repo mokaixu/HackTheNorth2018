@@ -475,3 +475,38 @@ iframe {
     padding-right: 15px;
   }
 } 
+
+// Animation keyframe
+@keyframes fingerOffsetToEnd {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 660; }
+}
+
+@keyframes fingerTextureLoop {
+  0% { x: 0; }
+  100% { x: -700;}
+}
+
+@mixin fingerAnimate($duration, $delay) {
+  animation-name: fingerOffsetToEnd;
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: $delay;
+}
+
+@mixin fingerBgLoop($duration, $delay) {
+  animation-name: fingerTextureLoop;
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-delay: $delay;
+}
+
+body {
+  background: #000;
+}
+
