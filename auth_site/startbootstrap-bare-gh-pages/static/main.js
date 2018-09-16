@@ -49,12 +49,31 @@ $.ajax(settings).done(function (response) {
 
 
     $.ajax(settings2).done(function(response) {
-        gqTl.play();
-        //gqTl.reverse();
+        status = JSON.parse(response).status
+        console.log(response)
+        if (status == 200) {
+            console.log('hi')
+            gqTl.play();
+            setTimeout(function(){ window.location.replace("http://google.com"); }, 3000);
+          
+
+        } // auth successgq
+        else if (status == 400) {
+            gqTlred.play();
+            setTimeout(function(){   $("#failedfinger").show(); 
+            setTimeout(function(){ location.reload();}, 1000);}, 3000);
+
+        } else {
+
+            $("#timeoutfinger").show();
+
+        }
 
     });
 
   } else {
+    console.log('username not found');
+    $("#timeoutfinger").show();
 
   }
 });
@@ -63,7 +82,10 @@ $.ajax(settings).done(function (response) {
 });
     
   var gqTl = new TimelineMax({paused:true});
-gqTl.staggerFromTo(".fingerprint path", 1,{autoAlpha: 0}, {autoAlpha: 1}, 0.1);
+gqTl.staggerFromTo(".fingerprint path", 1,{autoAlpha: 0}, {autoAlpha: 1}, 0.2);
+
+  var gqTlred = new TimelineMax({paused:true});
+gqTlred.staggerFromTo(".fingerprint-red path", 1,{autoAlpha: 0}, {autoAlpha: 1}, 0.2);
 
 $('#hoverbutton').hover(
   function() {  gqTl.play(); },
